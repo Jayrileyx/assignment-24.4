@@ -1,14 +1,20 @@
 version: 0.2
 
+env:
+  variables:
+    CI: "false"
+
 phases:
   install:
     runtime-versions:
       nodejs: 20
     commands:
-      - cd my-react-app && npm install
+      - cd my-react-app
+      - npm install
   build:
     commands:
-      - cd my-react-app && CI=false npm test -- --coverage
+      - cd my-react-app
+      - npm test -- --coverage
 
 artifacts:
   base-directory: my-react-app/build
