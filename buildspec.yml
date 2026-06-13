@@ -9,12 +9,10 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - cd my-react-app
-      - npm install
+      - cd $CODEBUILD_SRC_DIR/my-react-app && npm install
   build:
     commands:
-      - cd my-react-app
-      - npm test -- --coverage
+      - cd $CODEBUILD_SRC_DIR/my-react-app && npm test -- --coverage
 
 artifacts:
   base-directory: my-react-app/build
